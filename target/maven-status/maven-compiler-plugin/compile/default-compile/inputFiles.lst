@@ -1,0 +1,14 @@
+/workspaces/SmartPOS/src/main/java/com/smartpos/Main.java
+/workspaces/SmartPOS/src/main/java/com/smartpos/controllers/InventoryController.java
+/workspaces/SmartPOS/src/main/java/com/smartpos/controllers/MainController.java
+/workspaces/SmartPOS/src/main/java/com/smartpos/controllers/ProductController.java
+/workspaces/SmartPOS/src/main/java/com/smartpos/controllers/RegisterController.java
+/workspaces/SmartPOS/src/main/java/com/smartpos/models/Product.java
+/workspaces/SmartPOS/src/main/java/com/smartpos/models/Receipt.java
+/workspaces/SmartPOS/src/main/java/com/smartpos/models/Sale.java
+/workspaces/SmartPOS/src/main/java/com/smartpos/models/User.java
+/workspaces/SmartPOS/src/main/java/com/smartpos/services/BarcodeService.java
+/workspaces/SmartPOS/src/main/java/com/smartpos/services/DatabaseService.java
+/workspaces/SmartPOS/src/main/java/com/smartpos/services/PrintService.java
+/workspaces/SmartPOS/src/main/java/com/smartpos/utils/AlertUtils.java
+/workspaces/SmartPOS/src/main/java/com/smartpos/utils/ValidationUtils.java
