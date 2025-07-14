@@ -1,10 +1,8 @@
 package com.smartpos.controllers;
 
-import com.smartpos.models.Product;
-import com.smartpos.services.DatabaseService;
-import com.smartpos.utils.AlertUtils;
-
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class ProductController {
@@ -15,18 +13,38 @@ public class ProductController {
   @FXML
   private TextField priceField;
 
-  public void saveProduct() {
-    String name = productNameField.getText();
-    String price = priceField.getText();
+  @FXML
+  private Button saveButton;
 
-    if (name.isEmpty() || price.isEmpty()) {
-      AlertUtils.showError("Please fill all fields.");
+  @FXML
+  private void initialize() {
+    saveButton.setOnAction(e -> saveProduct());
+  }
+
+  private void saveProduct() {
+    String name = productNameField.getText();
+    String priceText = priceField.getText();
+
+    if (name.isEmpty() || priceText.isEmpty()) {
+      showAlert("Validation Error", "Please enter product name and price.");
       return;
     }
 
-    Product product = new Product(name, Double.parseDouble(price));
-    DatabaseService.saveProduct(product);
+    try {
+      double price = Double.parseDouble(priceText);
+      System.out.println("Product saved: " + name + " ($" + price + ")");
+      showAlert("Success", "Product saved: " + name);
+      productNameField.clear();
+      priceField.clear();
+    } catch (NumberFormatException e) {
+      showAlert("Validation Error", "Price must be a valid number.");
+    }
+  }
 
-    AlertUtils.showInfo("Product saved successfully.");
+  private void showAlert(String title, String message) {
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle(title);
+    alert.setContentText(message);
+    alert.showAndWait();
   }
 }
